@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>LOGIN PAGE</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet">
+  <script derer>
+    function checkInput(d) {
+      // Check if Username and password are valid ones.
+      return true
+    }
+
+    function login() {
+      var password_elm = document.getElementById("password")
+      var username_elm = document.getElementById("username")
+
+      let data = {username: username_elm.value, password: password_elm.value};
+
+      if (checkInput()) {
+        fetch("/api/login", {
+          method: "POST",
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        }).then(res => {
+          console.log("Request complete! response:", res);
+          if (res.status === 200) {
+            window.location = "/"
+          }
+          // Handle the two possible responses :
+          // Incorrect password or User not found : Credentials error.
+          // Valid credentials, new session_id sent
+        });
+      } else {
+        // Show somehow that there is a problem
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <main>
+    <div id="logo-cont">
+      <img id="logo" src="/img/logo.svg" alt="AlgerianForums logo">
+    </div>
+    <div id="form">
+      <div id="inputs-cont">
+        <input id="username" type="text" placeholder="username">
+        <input id="password" type="password" placeholder="password">
+      </div>
+      <div id="loginbtn-cont">
+        <input id="login-btn" type="button" value="login" onclick="login()">
+      </div>
+    </div>
+    <p>For new users, you can create a new account <a href="/signup">here</a></p>
+  </main>
+</body>
+
+</html>

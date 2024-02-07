@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Algerian Forums</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/index.css" rel="stylesheet">
+  <script defer src="js/rev.js"></script>
+  <script defer src="js/globalchat.js"></script>
+  <script defer src="js/posts.js"></script>
+  <script defer src="js/index.js"></script>
+</head>
+
+<body id="index">
+  <div id="overlay">
+    <div id="addpost" class="overlay hidden">
+      <input type="text" id="addpost_title" placeholder="title ...">
+      <textarea rows="10" cols="40" id="addpost_content">
+
+      </textarea>
+      <input type="file" value="+" id="post_image">
+      <button onclick="newPost()">POST (-10c)</button>
+      <button onclick="all_overlays.hide(); overlay.hide()">Cancel</button>
+    </div>
+  </div>
+  <div id="top_bar">
+    <span id="cinema_toggle">toggle</span>
+    <div id="event_bar">
+      THIS IS AN EVENT !
+    </div>
+  </div>
+  <main>
+    <div id="posts_container"></div>
+    <div id="globalchat">
+      <div id="messages"></div>
+      <div id="inputs">
+        <input placeholder="type a message" id="message_text" type="text">
+        <input id="send_btn" type="button" value="send">
+      </div>
+    </div>
+  </main>
+  <div id="bottom_bar">
+    <span id="name_label"></span>
+    <div id="menus">
+      <button class="not-working menu" onclick="toggleDMS()">
+        <img class="menu_img" src="/img/icons/DMS.svg" alt="Private messages">
+      </button>
+      <button class="not-working menu" onclick="newCinema()">
+        <img class="menu_img" src="/img/icons/cinema.svg" alt="New Cinema Room">
+      </button>
+      <button class="menu" onclick="togglePost()">
+        <img class="menu_img" src="/img/icons/post.svg" alt="New Post">
+      </button>
+      <button class="not-working menu" onclick="toggleSettings()">
+        <img class="menu_img" src="/img/icons/settings.svg" alt="Settings">
+      </button>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>AF | Create new user</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet">
+  <script defer>
+    function signup() {
+      var usern_elm = document.getElementById("username")
+      var pass_elm = document.getElementById("password")
+      var passr_elm = document.getElementById("passwordr")
+      var email_elm = document.getElementById("email")
+
+      let data = {
+        username: usern_elm.value,
+        password: pass_elm.value,
+        passrepeat: passr_elm.value,
+        email: email_elm.value
+      };
+      
+      if (checkInput(data)) {
+        fetch("/api/signup", {
+          method: "POST",
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        }).then(res => {
+          console.log("Request complete! response:", res);
+          if ( res.status == 200) {
+            window.location = "/"
+          }
+          res.json().then(a => {
+            console.log(a)
+          })
+          // Handle the two possible responses :
+          // Incorrect password or User not found : Credentials error.
+          // Valid credentials, new session_id sent
+        });
+      } else {
+        // Show somehow that there is a problem
+      }
+    } 
+
+    function checkInput(d) {
+      // Check for validity of user's input
+      return true
+    }
+  </script>
+  <style>
+  </style>
+</head>
+
+<body>
+  <main>
+    <div id="logo-cont">
+      <img id="logo" src="/img/logo.svg" alt="AlgerianForums logo">
+    </div>
+    <div id="form">
+      <div id="inputs-cont">
+        <input id="username" type="text" placeholder="username">
+        <input id="password" type="password" placeholder="password">
+        <input id="passwordr" type="password" placeholder="password">
+        <input id="email" type="email" placeholder="Email">
+        <input id="signupbtn" type="button" value="Sign Up!" onclick="signup()">
+      </div>
+    </div>
+    <p>Already registered ? Click <a href="/login">here</a> !</p>
+  </main>
+</body>
+
+</html>

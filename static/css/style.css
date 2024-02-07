@@ -1,0 +1,89 @@
+* {margin: 0px; padding: 0px; box-sizing: border-box;}
+
+body {
+  width: 100vw;
+  height :100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  height: fit-content;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+#logo-cont {
+  padding: 15px;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+#logo-cont #logo {
+  width: 70%;
+}
+
+#form {
+  display: flex;
+  flex-wrap: nowrap;
+  border: 1px solid black;
+
+}
+
+#form > #inputs-cont {
+  width: 70%;
+  display: block;
+  padding: 0px 10px;
+}
+#form > #inputs-cont input {
+  width: 100%;
+  margin: 10px 0px;
+
+  padding: 3px 6px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+#form > #loginbtn-cont {
+  width: 30%;
+  display: grid;
+  place-content: center;
+}
+#form > #loginbtn-cont input {
+  border: 0;
+  border-radius: 3px;
+  background: red;
+  color: black;
+  outline: none;
+  cursor: pointer;
+
+  padding: 10px
+}
+
+/* For Index.html  */
+
+#index {
+  display: block;
+}
+
+
+#messages {
+  display: block;
+}
+
+#inputs {
+  display: flex;
+  width: 20vw;
+}
+
+#inputs #message_text {
+  width: 80%;
+}
+
+#inputs #send_btn {
+  width: 20%;
+
+}

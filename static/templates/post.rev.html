@@ -1,0 +1,40 @@
+<html>
+  <div class="post" id="post_{#id#}">
+    <div class="post_title">
+      {#title#}
+    </div>
+    <div class="post_body">
+      <pre class="post_content">
+        {#content#}
+      </pre> 
+      <img src="{#img#}" alt="post image">
+    </div> 
+  </div>
+</html>
+<style>
+.post {
+  display: block;
+  border: 1px solid black;
+  margin: 5px;
+}
+.post > .post_title {
+  border-bottom: 1px solid black;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.post > .post_body {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.post > .post_body > p {
+  width: 75%;
+}
+.post > .post_body > img {
+  width: 25%;
+  margin: 5px;
+}
+</style>
+<script>
+
+</script>
