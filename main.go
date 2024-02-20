@@ -106,8 +106,8 @@ func main() {
 			Value:    sess.ID,
 			Expires:  time.Now().Add((24 * time.Hour) * 15),
 			Path:     "/",
-			//Secure:   true,
-			//SameSite: http.SameSiteStrictMode,
+			Secure:   true,
+			SameSite: http.SameSiteStrictMode,
 		}
 		c.SetCookie(sess_cookie)
 		return c.String(http.StatusOK, "User Logged in !")
@@ -191,5 +191,5 @@ func main() {
     return c.JSON(http.StatusOK, posts)
   })
 
-	e.Logger.Fatal(e.Start("192.168.100.4:443"))
+	e.Logger.Fatal(e.StartAutoTLS("192.168.100.4:443"))
 }
