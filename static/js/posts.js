@@ -2,7 +2,7 @@
 // Event Handler for when reaching posts end scroll position
 // getTenPosts finitions
 
-const posts_cont = $("#posts_container")
+const posts_cont = r("#posts_container")
 const post_part = new Part('/parts/post.rev.html')
 
 async function getTenPosts(offset) {
@@ -16,7 +16,7 @@ function generatePosts(offset) {
 }
 
 function appendPosts(posts) {
-  posts_cont.elm.innerHTML = ""
+  posts_cont.innerHTML = ""
   posts.forEach(post => {
     post_part.append("#posts_container", post)
   })

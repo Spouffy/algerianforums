@@ -4,10 +4,10 @@
 
 
 // DOM Elements
-const user_label = $('#name_label')
-const overlay = $('#overlay')
-const post_overlay = $('#addpost')
-const all_overlays = $(".overlay")
+const user_label = r('#name_label')
+const overlay = r('#overlay')
+const post_overlay = r('#addpost')
+const all_overlays = r(".overlay")
 
 
 // Overlay toggles
@@ -35,15 +35,15 @@ fetch("/api/userdata").then(e => {
 })
 
 function main() {
-  user_label.elm.innerHTML = username
+  user_label.innerHTML = username
 }
 
 // API funcs 
 
 function newPost() {
-  title = $("#addpost_title").elm.value
-  content = $("#addpost_content").elm.value
-  imgIn = $("#post_image").elm
+  title = r("#addpost_title").value
+  content = r("#addpost_content").value
+  imgIn = r("#post_image")
 
   if (imgIn.files.length > 0) {
     fr = new FileReader()
