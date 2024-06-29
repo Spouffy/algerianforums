@@ -4,9 +4,9 @@
       {#title#}
     </div>
     <div class="post_body">
-      <pre class="post_content">
+      <p class="post_content">
         {#content#}
-      </pre> 
+      </p> 
       <img src="{#img#}" alt="post image">
     </div> 
   </div>
@@ -14,25 +14,34 @@
 <style>
 .post {
   display: block;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px black;
   margin: 5px;
+  overflow: hidden;
 }
 .post > .post_title {
   border-bottom: 1px solid black;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
+  padding: 2px 5px;
+  background: rgb(31,72,241);
+  background: linear-gradient(180deg, rgba(31,72,241,1) 0%, rgba(172,208,255,1) 100%); 
 }
 .post > .post_body {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
+  margin: 5px;
 }
 .post > .post_body > p {
   width: 75%;
+  word-wrap: word-wrap;
 }
 .post > .post_body > img {
   width: 25%;
-  margin: 5px;
+  margin-left: 3px;
+  border-radius: 3px;
 }
 </style>
 <script>

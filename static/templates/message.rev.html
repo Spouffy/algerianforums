@@ -1,0 +1,26 @@
+<html>
+  <div class="global_msg {#type#}">
+    <img src="{#img#}" alt="{#sender#}'s picture"> 
+    <p>{#msg#}</p>
+  </div>  
+</html>
+<style>
+
+.global_msg {
+  display: flex;
+  width: 100%;
+  padding: 2px;
+}
+
+.global_msg > img {
+  border-radius: 50px;
+  width: 25px;
+  height: 25px;
+}
+.global_msg.owned {
+  flex-direction: row-reverse;
+}
+</style>
+<script>
+  
+</script>

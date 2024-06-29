@@ -1,6 +1,8 @@
-const msgTextElm = document.getElementById("message_text");
-const sendBtn = document.getElementById("send_btn");
-const messages_cont = document.getElementById("messages");
+const msgTextElm = r("#message_text");
+const sendBtn = r("#send_btn");
+const messages_cont = r("#messages");
+
+const message_part = new Part("./templates/message.rev.html")
 
 let globchat_scrolls = 1
 

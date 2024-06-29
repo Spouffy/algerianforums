@@ -183,6 +183,22 @@ func main() {
 
 	})
 
+  e.GET("/api/userdata/:user", func(c echo.Context) error {
+    cookie, err := c.Cookie("session_id")
+    username := c.Param("user")
+    ok := isSessionValid(cookie.Value)
+    if !ok || err != nil {
+      return loginHandler(c)
+    }
+    
+    profile, ok := getProfile(username)
+    if !ok {
+      return echo.NewHTTPError(http.StatusNotFound, errors.New(fmt.Sprintf("No profile with given username: %s", username)))
+    }
+
+    return c.JSON(http.StatusOK, profile)
+  })
+
   e.GET("/api/posts/:i", func(c echo.Context) error {
     i, err := strconv.Atoi(c.Param("i"))
     if err != nil || i < 0 { return echo.NewHTTPError(http.StatusBadRequest)}

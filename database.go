@@ -81,7 +81,7 @@ func isSessionValid(id string) (ok bool) {
 	defer db.Close()
 
 	var sess_id string
-	err := db.QueryRow("SELECT session_id FROM users WHERE session_id = '?'", id).Scan(&sess_id)
+	err := db.QueryRow(fmt.Sprintf("SELECT session_id FROM users WHERE session_id = '%s'", id)).Scan(&sess_id)
 	if err != nil {
 		return false
 	}
@@ -139,7 +139,7 @@ func storeChatHistory(chatname string, history string) bool {
 		return false
 	}
 
-	fmt.Print("Yes\n")
+  fmt.Print("New Message in : ", chatname, "\n")
 
 	return true
 }
